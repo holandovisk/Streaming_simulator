@@ -1,7 +1,20 @@
+import CardFilme from '@/components/CadFilme'
 import Title from '@/components/Title'
 import Image from 'next/image'
 
 export default function Home() {
+  const filmes = [{
+    titulo: 'Clash of Clans',
+    nota:'9.2',
+    poster: "https://apkloca.com/uploads/2022/8/clash-of-clans-thumbnail.jpg"
+  },
+  {
+    titulo: 'Brawl Stars',
+    nota: "10",
+    poster: "https://play-lh.googleusercontent.com/EiElcSrd6-o-19roiswSx0AZPzsq6qF3hUGHsSWDl5UVtj7G23DHkneM8ucwqyOmEg"
+  }
+
+  ]
   return (
     <>
     <nav className="flex p-4 bg-slate-900">
@@ -22,18 +35,14 @@ export default function Home() {
     </nav>
 
     <Title> em alta</Title> 
-
-     <div id="card" className="flex flex-col w-40 justify-center items-center m-2">
-        <img className="rounded"src="https://place-hold.it/150x220/666" alt="" />
-        <span className="font-bold text-center line-clamp-1">Clash of Clans</span>
-        <div>
-          <span>6.0</span>
-        </div>
-        <a href="#" className="bg-pink-600 py-2 w-full rounded text-center">detalhes</a>
-     </div>  
+    <section className='flex flex-wrap'>
+     {filmes.map(filme => <CardFilme filme={filme}/>)}
+    </section>
+    
+     
     <Title> lançamento</Title>   
   
-
+    <Title>favorios</Title>
     </>
   )
 }
