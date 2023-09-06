@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 export default function CardFilme({filme}){
     const[favorito,setFavorito] = useState(false)
+    const url_imagem = `https://images.pokemontcg.io/${id}.png`
 
     return(
         <div id="card" className="flex flex-col w-40 justify-center items-center m-2">
@@ -13,12 +14,13 @@ export default function CardFilme({filme}){
         <BookmarkIcon onClick={() => setFavorito(true)} className="h-6 w-6 text-blue-500 cursor-pointer" />
         }
         
-        <img className="rounded"src={filme.poster} alt="" />
+        <img className="rounded"src={url_imagem} alt="" />
         <span className="font-bold text-center line-clamp-1">
-            {filme.titulo}</span>
+            {filme.name}</span>
             
         <div>
-          <span>{filme.nota}</span>
+          <span>{filme.artist} <br>
+            {filme.rarity}</br></span>
         </div>
         <a href="#" className="bg-pink-600 py-2 w-full rounded text-center">detalhes</a>
      </div>    
