@@ -2,19 +2,19 @@ import CardFilme from '@/components/CadFilme'
 import Title from '@/components/Title'
 import Image from 'next/image'
 
+async function carregarFilmes(){
+  const url = "https://api.pokemontcg.io/v2/cards/"
+  const resposta = await fetch(url)
+  const json = await resposta.json()
+  return json.data
+}
 export default function Home() {
-  const filmes = [{
-    titulo: 'Clash of Clans',
-    nota:'9.2',
-    poster: "https://apkloca.com/uploads/2022/8/clash-of-clans-thumbnail.jpg"
-  },
-  {
-    titulo: 'Brawl Stars',
-    nota: "10",
-    poster: "https://play-lh.googleusercontent.com/EiElcSrd6-o-19roiswSx0AZPzsq6qF3hUGHsSWDl5UVtj7G23DHkneM8ucwqyOmEg"
-  }
 
-  ]
+  const filmes =carregarFilmes() 
+
+  
+
+  
   return (
     <>
     <nav className="flex p-4 bg-slate-900">
