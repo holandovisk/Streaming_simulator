@@ -8,9 +8,9 @@ async function carregarFilmes(){
   const json = await resposta.json()
   return json.data
 }
-export default function Home() {
+export default async function Home() {
 
-  const filmes =carregarFilmes() 
+  const filmes = await carregarFilmes() 
 
   
 

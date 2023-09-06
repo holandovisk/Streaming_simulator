@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 export default function CardFilme({filme}){
     const[favorito,setFavorito] = useState(false)
+    var id = filme.id.replace('-', '/')
     const url_imagem = `https://images.pokemontcg.io/${id}.png`
 
     return(
@@ -19,8 +20,8 @@ export default function CardFilme({filme}){
             {filme.name}</span>
             
         <div>
-          <span>{filme.artist} <br>
-            {filme.rarity}</br></span>
+          <span>{filme.artist} 
+            {filme.rarity} </span>
         </div>
         <a href="#" className="bg-pink-600 py-2 w-full rounded text-center">detalhes</a>
      </div>    
