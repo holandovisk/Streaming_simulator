@@ -3,10 +3,10 @@ import Title from '@/components/Title'
 import Image from 'next/image'
 
 async function carregarFilmes(){
-  const url = "https://api.pokemontcg.io/v2/cards/"
+  const url = "http://localhost:8080/cards"
   const resposta = await fetch(url)
   const json = await resposta.json()
-  return json.data
+  return json
 }
 export default async function Home() {
 
@@ -22,13 +22,13 @@ export default async function Home() {
       <ul className="Flex gap-20">
         <li>
           <a href = "#">
-      <h1>Fiap App</h1>
+      <h1>Pokemon TCG Cards</h1>
 
           </a>
         </li>
         <li>
           <a href = "#">
-            Jogos
+            Cards
           </a>
         </li>
       </ul>

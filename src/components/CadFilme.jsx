@@ -1,25 +1,23 @@
 "use client"
 import { BookmarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
+import useFavorito from '@/hooks/filmes'
 
 export default function CardFilme({filme}){
-    const[favorito,setFavorito] = useState(false)
+    const { favorito, desfavoritar, favoritar } = useFavorito()
     var id = filme.id.replace('-', '/')
     const url_imagem = `https://images.pokemontcg.io/${id}.png`
-    function favoritar(){
-     setFavorito(true)
-     
-    }
+   
     return(
         <div id="card" className="flex flex-col w-40 justify-center items-center m-2">
         { favorito ?
         <div className="flex"> 
-       <BookmarkIcon onClick={()=> setFavorito(false)} className="h-6 w-6 text-rose-600 cursor-pointer" />
+       <BookmarkIcon onClick={() => desfavoritar(filme)} className="h-6 w-6 text-rose-600 cursor-pointer " />
          adquirido
         </div> 
         :
         <div className="flex"> 
-        <BookmarkIcon onClick={favoritar} className="h-6 w-6 text-blue-500 cursor-pointer" />
+        <BookmarkIcon onClick={() => favoritar(filme)}  className="h-6 w-6 text-slate-100 cursor-pointer" />
             nao adquirido
         </div>
         }
