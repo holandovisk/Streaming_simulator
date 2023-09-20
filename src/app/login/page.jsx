@@ -2,12 +2,21 @@
 import Image from "next/image";
 import loginimage from "@/images/login.jpg"
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
+
 export default function Login(){
     const[email,setEmail] = useState("")
     const[senha,setSenha] = useState("")
+    const {push} = useRouter()
     function login(e){
         e.preventDefault()
-        console.log(email, senha)
+        if(email == "ola@ola.com" && senha=="123"){
+            push("/")
+        }else{
+            toast("dados inválidos")
+        }
+
     }
     return(
         <div className="flex"> 
