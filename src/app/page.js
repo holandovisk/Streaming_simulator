@@ -2,19 +2,19 @@ import CardFilme from '@/components/CadFilme'
 import Title from '@/components/Title'
 import Image from 'next/image'
 
-export default function Home() {
-  const filmes = [{
-    titulo: 'Clash of Clans',
-    nota:'9.2',
-    poster: "https://apkloca.com/uploads/2022/8/clash-of-clans-thumbnail.jpg"
-  },
-  {
-    titulo: 'Brawl Stars',
-    nota: "10",
-    poster: "https://play-lh.googleusercontent.com/EiElcSrd6-o-19roiswSx0AZPzsq6qF3hUGHsSWDl5UVtj7G23DHkneM8ucwqyOmEg"
-  }
+async function carregarFilmes(){
+  const url = "http://localhost:8080/cards"
+  const resposta = await fetch(url)
+  const json = await resposta.json()
+  return json
+}
+export default async function Home() {
 
-  ]
+  const filmes = await carregarFilmes() 
+
+  
+
+  
   return (
     <>
     <nav className="flex p-4 bg-slate-900">
@@ -22,13 +22,13 @@ export default function Home() {
       <ul className="Flex gap-20">
         <li>
           <a href = "#">
-      <h1>Fiap App</h1>
+      <h1>Pokemon TCG Cards</h1>
 
           </a>
         </li>
         <li>
           <a href = "#">
-            Jogos
+            Cards
           </a>
         </li>
       </ul>
