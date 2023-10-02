@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image";
 import loginimage from "@/images/login.jpg"
 import { useState } from "react";
